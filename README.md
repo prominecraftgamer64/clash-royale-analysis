@@ -6,9 +6,10 @@ An end-to-end PySpark pipeline over five seasons of high-trophy Clash Royale bat
 
 | Path | What it is |
 |---|---|
-| `outputs/clash_royale_descriptive_analysis.ipynb` | Executed notebook: the main deliverable, including the written interpretation |
-| `outputs/fig*.png` | Five figures at 300 DPI |
-| `outputs/*.parquet` | Result tables (trophy thresholds, card metrics, deck leaderboard, family summary, cross-season stability, trajectories, ingestion audits) |
+| `outputs/clash_royale_descriptive_analysis.ipynb` | Executed notebook: the full technical report (abstract, methodology, results, sensitivity analysis, conclusion, references) |
+| `outputs/fig1–fig7*.png` | Seven report figures at 300 DPI (pipeline diagram, raw-data overview, five result figures) |
+| `outputs/du_sch_raw_input.png` | `du -sch` capture of the 38 GB raw input |
+| `outputs/*.parquet` | Result tables: trophy thresholds, card metrics, deck leaderboard, family summary, cross-season stability, trajectories, ingestion audits, filtering funnel, sensitivity results |
 | `notebook_src.py` | Source of the notebook (percent format), the single source of truth |
 | `build_notebook.py` | Converts `notebook_src.py` into the `.ipynb` |
 | `ref/cards.json` | Card id → name / elixir / rarity lookup |
