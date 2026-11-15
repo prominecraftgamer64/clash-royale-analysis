@@ -1,4 +1,4 @@
-"""Convert the percent-format source (notebook_src.py) into outputs/clash_royale_descriptive_analysis.ipynb.
+"""Convert the percent-format source (notebook_src.py) into submission/clash_royale_descriptive_analysis.ipynb.
 
 Cells are delimited by lines starting with '# %%'. '# %% [markdown]' cells have their
 leading '# ' comment prefix stripped.
@@ -10,7 +10,7 @@ from pathlib import Path
 import nbformat
 
 src = Path(sys.argv[1] if len(sys.argv) > 1 else "notebook_src.py").read_text()
-out = Path(sys.argv[2] if len(sys.argv) > 2 else "outputs/clash_royale_descriptive_analysis.ipynb")
+out = Path(sys.argv[2] if len(sys.argv) > 2 else "submission/clash_royale_descriptive_analysis.ipynb")
 
 cells = []
 for block in re.split(r"^# %%", src, flags=re.M)[1:]:

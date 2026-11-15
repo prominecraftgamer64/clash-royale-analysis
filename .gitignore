@@ -1,9 +1,8 @@
 # Large rebuildable intermediates (exceed GitHub's 100 MB file limit)
-outputs/staged_battles.parquet/
-outputs/_interim/
+staged_battles.parquet/
+_interim/
 # Smoke-test artefacts and run logs
 outputs_smoke/
-smoke_run.ipynb
 *.log
 # Python / Jupyter / Spark noise
 __pycache__/

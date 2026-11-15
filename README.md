@@ -2,24 +2,31 @@
 
 An end-to-end PySpark pipeline over five seasons of high-trophy Clash Royale battles (149 daily files, 193.9 M raw rows). It produces descriptive metrics for cards, decks and deck families.
 
-## Contents
+## What to submit: `submission/`
+
+Everything except the raw data is in this folder:
 
 | Path | What it is |
 |---|---|
-| `outputs/clash_royale_descriptive_analysis.ipynb` | Executed notebook: the full technical report (abstract, methodology, results, sensitivity analysis, conclusion, references) |
-| `outputs/fig1–fig7*.png` | Seven report figures at 300 DPI (pipeline diagram, raw-data overview, five result figures) |
-| `outputs/du_sch_raw_input.png` | `du -sch` capture of the 38 GB raw input |
-| `outputs/*.parquet` | Result tables: trophy thresholds, card metrics, deck leaderboard, family summary, cross-season stability, trajectories, ingestion audits, filtering funnel, sensitivity results |
-| `notebook_src.py` | Source of the notebook (percent format), the single source of truth |
-| `build_notebook.py` | Converts `notebook_src.py` into the `.ipynb` |
-| `ref/cards.json` | Card id → name / elixir / rarity lookup |
+| `submission/clash_royale_descriptive_analysis.ipynb` | **The technical report**: an executed notebook (abstract, methodology, results, sensitivity analysis, conclusion, references) |
+| `submission/outputs/du_sch_raw_input.png` | `du -sch` capture of the 38 GB raw input |
+| `submission/outputs/fig1–fig7*.png` | The seven report figures at 300 DPI |
+| `submission/outputs/*.parquet` | Result tables: trophy thresholds, card metrics, deck leaderboard, family summary, cross-season stability, trajectories, ingestion audits, filtering funnel, sensitivity results |
+| `submission/ref/cards.json` | Card id → name / elixir / rarity lookup used by the notebook |
+
+## Development files (not for submission)
+
+| Path | What it is |
+|---|---|
+| `notebook_src.py` | Source of the notebook in percent format; this is the file to edit |
+| `build_notebook.py` | Converts `notebook_src.py` into `submission/clash_royale_descriptive_analysis.ipynb` |
 
 ## Not included
 
 These folders are rebuilt by running the pipeline and are too large for GitHub:
 
-- `outputs/staged_battles.parquet` (about 9 GB): the 191 M cleaned battles
-- `outputs/_interim/` (about 8 GB): intermediate tables
+- `submission/outputs/staged_battles.parquet` (about 9 GB): the 191 M cleaned battles
+- `submission/outputs/_interim/` (about 8 GB): intermediate tables
 
 ## Reproduce
 
@@ -27,7 +34,8 @@ Requires PySpark 4.x, Java 17 and the raw data at `/mnt/data/public/clash-royale
 
 ```bash
 python build_notebook.py
-jupyter nbconvert --to notebook --execute --inplace outputs/clash_royale_descriptive_analysis.ipynb
+cd submission
+jupyter nbconvert --to notebook --execute --inplace clash_royale_descriptive_analysis.ipynb
 ```
 
 | Environment variable | Effect |
